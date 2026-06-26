@@ -1,0 +1,19 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build step
+        run: |
+          echo "Building..."
+          python3 -c "import random; exit(1 if random.random() > 0.5 else 0)"
+
+      - name: Deploy
+        run: echo "Deployed"
